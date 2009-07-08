@@ -14,20 +14,13 @@
     </head>
     <body>
         <ul id="widgetContainer"></ul>
-        <div id="celebs"></div>
 
         <script type="text/javascript">
-        var config = {'communitytables' : true};
+        var config = {};
         var format = '<li class="imgCnt"><img src="{src}" alt="{alt}"></li>';
         var yqlQuery = 'select * from html where url = "http://hubblesite.org/gallery/album/the_universe" and xpath="/html/body/div/div[4]/div[2]/div/div/div/div[2]/a/img" limit 10';
 
         yqlWidget.push(yqlQuery, config, format, "widgetContainer");
-
-        var format2 = '<div><h2>{name}- {born.content}<br><img src="{img.src}" alt="{img.alt}"</div>';
-        var yqlQuery2 = 'select * from imdb.celeb.birthdays where img.alt != "Photo Not Submitted"';
-
-
-        yqlWidget.push(yqlQuery2, config, format2, "celebs");
         yqlWidget.render();
         </script>
     </body>
